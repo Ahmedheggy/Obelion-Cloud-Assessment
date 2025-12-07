@@ -8,11 +8,12 @@ resource "aws_db_instance" "mysql" {
   username                = "admin"
   password                = var.db_password
   db_subnet_group_name    = aws_db_subnet_group.main.id
-  vpc_security_group_ids  = [var.backend_sg_id]
+  vpc_security_group_ids  = [var.database_sg_id]
   backup_retention_period = 7
   multi_az                = true
   publicly_accessible     = false
-
+  skip_final_snapshot     = true
+  
   tags = {
     Name        = "MySQL Database"
     Environment = var.environment

@@ -5,7 +5,7 @@ set -e
 FRONTEND_APP_DIR="/opt/uptime-kuma"
 HOST_PORT="80"
 CONTAINER_PORT="3001"
-CURRENT_USER=$(whoami) 
+CURRENT_USER="ubuntu" 
 
 # ---  System Update and Dependency Installation ---
 sudo apt-get update -y

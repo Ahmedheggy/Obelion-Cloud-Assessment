@@ -27,3 +27,8 @@ output "backend_sg_id" {
   description = "The Security Group ID for backend EC2 instance"
   value       = aws_security_group.backend_sg.id
 }
+
+output "database_sg_id" {
+  description = "The Security Group ID for database"
+  value       = aws_security_group.database_sg.id
+}

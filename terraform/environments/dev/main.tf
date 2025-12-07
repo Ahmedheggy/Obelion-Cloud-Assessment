@@ -32,7 +32,7 @@ module "rds" {
   source             = "../../modules/rds"
   environment        = var.environment
   private_subnet_ids = module.network.private_subnet_id
-  backend_sg_id      = module.ec2.backend_sg_id
+  database_sg_id     = module.ec2.database_sg_id
   kms_key_id         = module.kms_and_secrets_manager.kms_key_id
   db_password        = var.db_password
 }

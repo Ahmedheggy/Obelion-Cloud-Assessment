@@ -13,7 +13,7 @@
 graph LR
     User([👤 User]) -->|HTTP| Frontend
     Frontend[🖥️ Frontend<br/>Uptime Kuma<br/>Port 80] -->|Monitor| Backend
-    Backend[⚙️ Backend<br/>Laravel API<br/>Port 8000] -->|Query| Database
+    Backend[⚙️ Backend<br/>Laravel API<br/>Port 80] -->|Query| Database
     Database[(💾 RDS MySQL<br/>Multi-AZ<br/>Port 3306)]
     
     CloudWatch[📊 CloudWatch] -.->|Monitor| Frontend
@@ -168,8 +168,8 @@ graph LR
 |-------|---------------|
 | **Network** | Private subnets for RDS, public for apps |
 | **Frontend SG** | HTTP (80), SSH (22) from `0.0.0.0/0` |
-| **Backend SG** | HTTP (8000) from Frontend SG only, SSH from `0.0.0.0/0` |
-| **Database SG** | MySQL (3306) from Backend SG only |
+| **Backend SG** | HTTP (80) from Frontend SG only, SSH from `0.0.0.0/0` |
+| **Database SG** | MySQL (3306) from Frontend SG and Backend SG |
 | **Secrets** | Secrets Manager for DB credentials |
 | **IAM** | Least privilege roles for EC2 → Secrets access |
 

@@ -8,8 +8,8 @@ variable "private_subnet_ids" {
   type        = list(string)
 }
 
-variable "backend_sg_id" {
-  description = "Security Group ID of the backend instances"
+variable "database_sg_id" {
+  description = "Security Group ID for the database"
   type        = string
 }
 

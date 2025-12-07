@@ -63,8 +63,6 @@ graph LR
 - **Location**: Private subnets
 
 ### 🔐 Security & Monitoring
-- Secrets Manager (DB credentials)
-- IAM roles (least privilege)
 - Security Groups (layered)
 - CloudWatch alarms (CPU 50%)
 - SNS email notifications
@@ -78,7 +76,7 @@ graph LR
 Obelion-Cloud-Assessment/
 ├── terraform/
 │   ├── environments/dev/        # Terraform configs (main, variables, outputs)
-│   └── modules/                 # network, ec2, rds, cloudwatch, iam, kms
+│   └── modules/                 # network, ec2, rds, cloudwatch
 ├── apps/
 │   ├── Frontend/                # deploy(frontend).yml
 │   └── Backend/                 # deploy(backend).yml
@@ -170,10 +168,8 @@ graph LR
 | **Frontend SG** | HTTP (80), SSH (22) from `0.0.0.0/0` |
 | **Backend SG** | HTTP (80) from Frontend SG only, SSH from `0.0.0.0/0` |
 | **Database SG** | MySQL (3306) from Frontend SG and Backend SG |
-| **Secrets** | Secrets Manager for DB credentials |
-| **IAM** | Least privilege roles for EC2 → Secrets access |
 
-**Best Practices:** ✅ Multi-AZ database ✅ Isolated subnets ✅ No hardcoded secrets ✅ Least privilege access
+**Best Practices:** ✅ Multi-AZ database ✅ Isolated subnets ✅ Least privilege access
 
 ---
 

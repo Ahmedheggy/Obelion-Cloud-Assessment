@@ -124,7 +124,7 @@ azs                  = ["us-east-1a", "us-east-1b"]
 - **Network**: VPC (10.0.0.0/16), 2 public + 2 private subnets across 2 AZs
 - **Compute**: Frontend (Uptime Kuma) + Backend (Laravel) EC2 instances
 - **Database**: MySQL 8.0 RDS Multi-AZ in private subnets
-- **Security**: Security Groups, KMS, Secrets Manager, IAM roles
+- **Security**: Security Groups
 - **Monitoring**: CloudWatch alarms (CPU 50%) + SNS email notifications
 
 ## Common Commands
@@ -156,9 +156,7 @@ terraform/
     ├── network/        # VPC, subnets, IGW
     ├── ec2/            # EC2 + security groups
     ├── rds/            # MySQL database
-    ├── cloudwatch/     # Monitoring
-    ├── kms_and_secrets_manager/
-    └── iam/            # IAM roles
+    └── cloudwatch/     # Monitoring
 ```
 
 ## Troubleshooting
@@ -181,7 +179,7 @@ aws s3 mb s3://terraform-state-obelion-ahmed
 
 ## Security Notes
 
-- Database password stored in AWS Secrets Manager (encrypted)
+- Database password managed via Terraform variables
 - Never commit `terraform.tfvars` to git (already in .gitignore)
 - SNS subscription requires email confirmation
 - State file stored in S3 backend

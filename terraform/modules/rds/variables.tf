@@ -13,11 +13,6 @@ variable "database_sg_id" {
   type        = string
 }
 
-variable "kms_key_id" {
-  description = "KMS Key ID for DB encryption"
-  type        = string
-}
-
 variable "db_password" {
   description = "Password for the database"
   type        = string
